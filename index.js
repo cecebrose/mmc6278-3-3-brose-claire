@@ -64,16 +64,7 @@ function runQuiz(){
     runQuiz.onclick = ()=>{
         info_box.classList.add("activeInfo"); //show info box
     }
-};
-  // if continueQuiz button clicked
-    continue_btn.onclick = ()=>{
-    info_box.classList.remove("activeInfo"); //hide info box
-    quiz_box.classList.add("activeQuiz"); //show quiz box
-    showQuetions(0); //calling showQestions function
-    queCounter(1); //passing 1 parameter to queCounter
-    startTimer(15); //calling startTimer function
-    startTimerLine(0); //calling startTimerLine function
-};
+}
 
 let timeValue =  15;
 let que_count = 0;
@@ -121,11 +112,7 @@ function questionsArr(){
     for(i=0; i < option.length; i++){
         option[i].setAttribute("onclick", "optionSelected(this)");
     }
-};
-
-// creating the new div tags for icons
-let tickIconTag = '<div class="icon tick"><i class="fas fa-check"></i></div>';
-let crossIconTag = '<div class="icon cross"><i class="fas fa-times"></i></div>';
+}
 
 //if user clicked on option
 function optionSelected(answer){
@@ -135,7 +122,7 @@ function optionSelected(answer){
     let correcAns = questions[que_count].answer; //getting correct answer from array
     const allOptions = option_list.children.length; //getting all option items
     
-    if(userAns == correcAns){ //if user selected option is equal to array's correct answer
+    if(userAns == correctAns){ //if user selected option is equal to array's correct answer
         userScore += 1; //upgrading score value with 1
         answer.classList.add("correct"); //adding green color to correct selected option
         answer.insertAdjacentHTML("beforeend", tickIconTag); //adding tick icon to correct selected option
@@ -179,3 +166,4 @@ function showResult(){
     }
 };
 
+// resource: https://www.codingnepalweb.com/quiz-app-with-timer-javascript //
